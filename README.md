@@ -1,3 +1,5 @@
+# **Completed**
+
 **Лабораторная работа №12**
 
 > Implement web-server with Axum (https://github.com/tokio-rs/axum)
@@ -27,6 +29,9 @@ $ cargo run
 $ curl -X GET http://127.0.0.1:3000/v1/todos/sadasd
 > {"assigned":"user@example.com","id":"sadasd","message":"Just do it!","priority":"A"}
 ```
+
+
+# In dev
 
 #13
 Nginx as proxy to Todos-server (Rust, Axum) -- local setup (with out docker)
