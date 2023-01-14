@@ -1,8 +1,8 @@
-FROM rust:1.64-slim-bullseye as builder
-WORKDIR /usr/src/todos
+FROM rust:1.64-slim-bullseye
+WORKDIR /usr/src/
 COPY . .
+# COPY ./target /usr/src/todos/target
+EXPOSE 80:3000
 RUN cargo install --path .
 
-FROM debian:bullseye-slim
-COPY --from=builder /usr/local/cargo/bin/todos /usr/local/bin/todos
-CMD ["todos"]
+CMD ["cargo", "run"]

@@ -1,6 +1,6 @@
 # **Completed**
 
-**Лабораторная работа №12**
+## 12
 
 > Implement web-server with Axum (https://github.com/tokio-rs/axum)
 >
@@ -30,7 +30,7 @@ $ curl -X GET http://127.0.0.1:3000/v1/todos/sadasd
 > {"assigned":"user@example.com","id":"sadasd","message":"Just do it!","priority":"A"}
 ```
 
-#13
+## 13
 В `/etc/nginx/sites-enabled/default` находится правило, которое говорит nginx прослушивать все запросы по порту `80` и перенаправлять их на порт `3000` (3000 прослушивается этим приложением)  
 ```conf
 server {
@@ -51,5 +51,8 @@ server {
 
 # In dev
 
-#14
-13 lab inside containers with Docker Compose
+## 14
+Запустить контейнер с приложением
+```bash
+docker run -p 80:3000 {id}
+```

@@ -17,7 +17,7 @@ async fn main() {
         .route("/", get(root))
         .route("/v1/todos/:id", get(json_hello));
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
     tracing::info!("listening on {}", addr);
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
