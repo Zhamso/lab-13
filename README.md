@@ -30,11 +30,26 @@ $ curl -X GET http://127.0.0.1:3000/v1/todos/sadasd
 > {"assigned":"user@example.com","id":"sadasd","message":"Just do it!","priority":"A"}
 ```
 
+#13
+В `/etc/nginx/sites-enabled/default` находится правило, которое говорит nginx прослушивать все запросы по порту `80` и перенаправлять их на порт `3000` (3000 прослушивается этим приложением)  
+```conf
+server {
+    listen        80;
+    server_name _;
+    location / {
+        proxy_pass         http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+```
 
 # In dev
-
-#13
-Nginx as proxy to Todos-server (Rust, Axum) -- local setup (with out docker)
 
 #14
 13 lab inside containers with Docker Compose
